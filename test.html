@@ -1,0 +1,65 @@
+<!doctype html>
+<html language="en-US">
+    <head>
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <style>
+            #inner {
+               position: relative; 
+               transition: transform 0.1s;
+               transition-timing-function: ease-out; 
+            }
+            #outer {
+                top: 100px;
+                position: absolute;
+                width: 1000px;
+                height: 200px;
+                border: 1px solid black;
+                overflow: hidden;
+            }
+        </style>
+        <title>HTML page</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div id="outer">
+            <div id="inner">
+                <img src="background.jpg">
+            </div>
+        </div>
+        <script>
+
+            function map(x, y) {
+                var clip_width = 1000;   
+                var clip_height = 200;   
+                var content_width = 1600;
+                var content_height = 1067;
+                var max_x_translate = content_width - clip_width;
+                var max_y_translate = content_height - clip_height;
+
+                return {
+                    x: Math.min((x*(content_width-clip_width))/clip_width, max_x_translate),
+                    y: Math.min((y*(content_height-clip_height))/clip_height, max_y_translate)
+                };
+            }
+            var inner = document.getElementById('inner');
+            var outer = document.getElementById('outer');
+            var count = 0;
+            outer.addEventListener('mousemove', function(e) {
+                count += 1;
+                if(count % 1 !== 0) {
+                    return;
+                }
+                
+                var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,
+                    width =  window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+                
+                // inner.style.transform = 'translate(' + (-(e.layerX/width*100 + 50)) + '%, ' + (-(e.layerY/width*100 + 50)) + '%)';
+                var translate = map(e.layerX, e.layerY);
+                var translate_string = 'translate(' + -translate.x + ', ' + -translate.y + ')';
+                // console.log(translate_string);
+                inner.style.transform = 'translate(' + -translate.x + 'px, ' + -translate.y + 'px)';
+            }, false);
+        </script>
+    </body>
+</html>
