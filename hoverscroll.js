@@ -26,8 +26,8 @@
             var translate;
 
             // do a little throttling here
-            count += 2;
-            if(count % 1 !== 0) {
+            count += 1;
+            if(count % 2 !== 0) {
                 return;
             }
             
