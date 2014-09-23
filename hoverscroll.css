@@ -1,0 +1,14 @@
+/** 
+ * base styling for hoverscroll behavior 
+ *
+ */
+
+.hoverscroll_inner {
+   transition: transform 0.1s;
+   transition-timing-function: ease-out; 
+}
+
+.hoverscroll_outer {
+    overflow: hidden;
+}
+
