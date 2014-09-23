@@ -1,0 +1,71 @@
+<!doctype html>
+<html language="en-US">
+    <head>
+        <title>HTML page</title>
+        <meta charset="utf-8">
+
+        <script src="hoverscroll.js"></script>
+        <link rel="stylesheet" href="hoverscroll.css">
+        <style>
+
+			body {
+				margin: 0;
+				background-color: blue;
+			}
+            #panorama_inner {
+               width: 1600px;
+               height: 1071px;
+			   background-color: white;
+            }
+
+            #panorama_outer {
+				margin-top:100px;
+                height: 500px;
+				box-shadow: inset 15px 15px 15px #000;
+            }
+
+            .item {
+				border: 3px solid grey;
+                width: 150px;
+                height: 150px;
+                float: left;
+                margin: 50px;
+			    transition: border 0.4s;
+			    transition-timing-function: ease-out; 
+            }
+            .item:hover {
+				border: 3px solid black;
+            }
+		
+
+
+        </style>
+    </head>
+    <body>
+        <div id="panorama_outer" class="hoverscroll_outer">
+            <div id="panorama_inner" class="hoverscroll_inner">
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+            </div>
+        </div>
+
+        <script>
+            new Hoverscroll('panorama_outer');
+        </script>
+    </body>
+</html>
+
