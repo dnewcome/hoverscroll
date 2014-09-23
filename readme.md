@@ -2,8 +2,10 @@
 
 # About
 
-Hoverscroll is a simple HTML5 behavioral component that allows scrolling the contents of an element by hovering
-with the mouse.
+Hoverscroll is a tiny and simple HTML5 behavioral component that allows scrolling the contents of an element by hovering
+with the mouse. It leverages simple event throttling, css transforms and css transitions for smoothness and performance. 
+Translate3d is used to enable hardware acceleration and to avoid browser repaints. To see this in action enable "Show compositing
+borders" in Safari and observe that scrolling does not cause any repaints.
 
 Inspired by the D3 website:
 [](http://d3js.org/)
@@ -35,7 +37,7 @@ Only mouse movements directly over the parent element will be detected.
 
 # Limitations
 
-This only works correctly in Chrome. Firefox is on the way but there are some differences in the way layerX and layerY event
+This only works correctly in Chrome and Safari. Firefox is on the way but there are some differences in the way layerX and layerY event
 data works, and I want to normalize the behavior so it's consistent across browsers.
 
 # Bugs

@@ -1,4 +1,5 @@
 ;(function(w) {
+    'use strict';
 
     function Hoverscroll(id) {
         var outer = document.querySelector('#' + id),
@@ -31,10 +32,12 @@
             }
             
             translate = map(e.layerX, e.layerY);
-            inner.style.transform = 'translate(' + -translate.x + 'px, ' + -translate.y + 'px)';
+            inner.style.transform = 'translate3d(' + -translate.x + 'px, ' + -translate.y + 'px, 0px)';
+            inner.style.webkitTransform = 'translate3d(' + -translate.x + 'px, ' + -translate.y + 'px, 0px)';
         }, false);
     }
 
     w.Hoverscroll = Hoverscroll;
 
 }(window));
+
