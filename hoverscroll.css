@@ -7,8 +7,12 @@
    transition: transform 0.1s;
    transition-timing-function: ease-out; 
 
-   -webkit-transition: -webkit-transform 0.1s;
+/*
+   transitions are jerky on safari 
    -webkit-transition-timing-function: ease-out; 
+   -webkit-transition: -webkit-transform 0.1s;
+*/
+ 
 }
 
 .hoverscroll_outer {
