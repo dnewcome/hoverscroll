@@ -1,18 +1,14 @@
 <!doctype html>
 <html language="en-US">
     <head>
-        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <title>HTML page</title>
+        <meta charset="utf-8">
+
+        <script src="hoverscroll.js"></script>
+        <link rel="stylesheet" href="hoverscroll.css">
         <style>
-            .hoverscroll_inner {
-               transition: transform 0.1s;
-               transition-timing-function: ease-out; 
-            }
 
-            .hoverscroll_outer {
-                overflow: hidden;
-            }
-
-            #panorama_inner {
+            #panorama_inner, #panorama_inner2 {
                width: 1600px;
                height: 1071px;
             }
@@ -22,9 +18,12 @@
                 height: 200px;
             }
 
+            #panorama_outer2 {
+                width: 500px;
+                height: 200px;
+            }
+
         </style>
-        <title>HTML page</title>
-        <meta charset="utf-8">
     </head>
     <body>
         <div id="panorama_outer" class="hoverscroll_outer">
@@ -32,6 +31,16 @@
                 <img src="background.jpg">
             </div>
         </div>
-        <script src="hoverscroll.js"></script>
+        <div id="panorama_outer2" class="hoverscroll_outer">
+            <div id="panorama_inner2" class="hoverscroll_inner">
+                <img src="background.jpg">
+            </div>
+        </div>
+
+        <script>
+            new Hoverscroll('panorama_outer');
+            new Hoverscroll('panorama_outer2');
+        </script>
     </body>
 </html>
+
