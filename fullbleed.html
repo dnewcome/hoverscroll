@@ -1,0 +1,61 @@
+<!doctype html>
+<html language="en-US">
+    <head>
+        <title>HTML page</title>
+        <meta charset="utf-8">
+
+        <script src="hoverscroll.js"></script>
+        <script>
+            function toggleZoom(e) {
+                console.log('zoom');
+                var el = document.querySelector('#panorama_inner img');
+                el.classList.toggle('scale2');
+            }
+        </script>
+        <link rel="stylesheet" href="hoverscroll.css">
+        <style>
+
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+            }
+
+            .scale1 {
+                -webkit-transform: scale(1,1);
+            }
+
+            .scale2 {
+                transform: scale(2,2);
+                -webkit-transform: scale(2,2);
+            }
+
+            #panorama_inner {
+               width: 3840px;
+               height: 2160px;
+            }
+
+            #panorama_outer {
+                position: relative;
+                top: 100px;
+                width: 100%;
+                height: 500px;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <h2>Test page</h2>
+        <div onClick="toggleZoom(event);" id="panorama_outer" class="hoverscroll_outer">
+            <div id="panorama_inner" class="hoverscroll_inner">
+                <img src="phobos_1-3840.jpg">
+            </div>
+        </div>
+
+        <script>
+            new Hoverscroll('panorama_outer');
+        </script>
+    </body>
+</html>
+

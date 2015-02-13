@@ -1,17 +1,8 @@
+/**
+ * This does a reverse scroll, fixing the image and making the contents appear to scroll above it
+ */
 ;(function(w) {
     'use strict';
-
-    function normalize(e) {
-        e = e || window.event;
-
-        var target = e.currentTarget,
-        // var target = e.target || e.srcElement,
-            rect = target.getBoundingClientRect(),
-            offsetX = e.clientX - rect.left,
-            offsetY = e.clientY - rect.top;
-
-        return [offsetX, offsetY];
-    };
 
     function Hoverscroll(id) {
         var outer = document.querySelector('#' + id),
@@ -34,43 +25,16 @@
             };
         }
 
-
-        // mod, event, timeout
-        var throttle = 'timeout'; 
-        var canRun = true;
-
-        if(throttle === 'event') {
-            outer.addEventListener("transitionend", function() {
-                canRun = true;
-            }, false);
-        }
-
         outer.addEventListener('mousemove', function(e) {
-            if(!canRun) {
-                return;
-            }
-            if(throttle === 'event' || throttle === 'timeout') {
-                canRun = false;
-            }
-
-            
-            if(throttle === 'timeout') {
-                setTimeout(function() {canRun = true;}, 16.6);
-            }
             var translate;
 
             // do a little throttling here
-            if(throttle === 'mod') {
-                count += 1;
-                if(count % 2 !== 0) {
-                    return;
-                }
+            count += 1;
+            if(count % 2 !== 0) {
+                return;
             }
-           
-            var xy = normalize(e); 
-            //console.log(xy);
-            //translate = map(e.layerX, e.layerY);
-            translate = map(xy[0], xy[1]);
+            
+            translate = map(e.layerX, e.layerY);
             inner.style.transform = 'translate3d(' + -translate.x + 'px, ' + -translate.y + 'px, 0px)';
             inner.style.webkitTransform = 'translate3d(' + -translate.x + 'px, ' + -translate.y + 'px, 0px)';
         }, false);

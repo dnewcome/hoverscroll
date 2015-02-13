@@ -4,10 +4,10 @@
  */
 
 .hoverscroll_inner {
-   transition: transform 0.1s;
-   transition-timing-function: ease-out; 
 
-   -webkit-transition: -webkit-transform 0.1s;
+   transition: transform 0.0166s;
+   transition-timing-function: ease-out; 
+   -webkit-transition: -webkit-transform 0.0166s;
    -webkit-transition-timing-function: ease-out; 
 }
 
@@ -15,3 +15,9 @@
     overflow: hidden;
 }
 
+.hoverscroll_inner img {
+   transition: transform 0.5s;
+   transition-timing-function: ease-out; 
+   -webkit-transition: -webkit-transform 0.5s;
+   -webkit-transition-timing-function: ease-out; 
+}
